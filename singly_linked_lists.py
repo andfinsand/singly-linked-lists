@@ -45,7 +45,7 @@ class SLL:
             print(sum)
             return self
 
-x = SLL() # declare linked list class
+x = SLL() # declare singly linked list class
 x.head = Node(4) # declare head of Node class
 
 #examples
