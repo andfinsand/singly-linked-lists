@@ -6,6 +6,9 @@ class Node:
 class SLL:
     def __init__(self):
         self.head = None
+        
+    # add value to end of array
+    
     def addBack(self, value):
         if self.head == None:
             self.head = Node(value)
@@ -15,7 +18,10 @@ class SLL:
                 runner = runner.next
             runner.next = Node(value)
         return self
-    def displayValues(self):
+    
+    # traverse through array
+    
+    def displayValues(self): 
         if self.head == None:
             print("No values")
         else:
@@ -24,6 +30,9 @@ class SLL:
                 print(runner.value)
                 runner = runner.next
         return self
+    
+    # find highest value of array
+    
     def maxValue(self):
         sum = 0
         if self.head == None:
@@ -36,11 +45,11 @@ class SLL:
             print(sum)
             return self
 
-x = SLL()
-x.head = Node(4)
+x = SLL() # declare linked list class
+x.head = Node(4) # declare head of Node class
+
+#examples
 
 x.addBack(3).addBack(5)
-
 x.displayValues()
-
 x.maxValue()
