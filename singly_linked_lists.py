@@ -6,16 +6,31 @@ class Node:
 class SLL:
     def __init__(self):
         self.head = None
-    def addBack(self, value):
-        if self.head == None:
-            self.head = Node(value)
+
+    # add node to front of array
+
+    def add_to_front(self, key):
+        new_node = Node(key) # initialize new node from Node class
+        current_head = self.head # create new variable to store current head (temp)
+        new_node.next = current_head # direct the new nodes 'next' pointer to existing head (stored in new variable)
+        self.head = new_node # reassign new node as head
+        return self
+
+    # add node to end of array
+
+    def add_to_back(self, key):
+        if self.head == None: # check if head is None
+            self.head = Node(key)
         else:
             runner = self.head
             while runner.next != None:
                 runner = runner.next
-            runner.next = Node(value)
+            runner.next = Node(key)
         return self
-    def displayValues(self):
+
+    # traverse through array
+
+    def display_values(self):
         if self.head == None:
             print("No values")
         else:
@@ -24,7 +39,10 @@ class SLL:
                 print(runner.value)
                 runner = runner.next
         return self
-    def maxValue(self):
+
+    # find sum of all node values
+
+    def max_value(self):
         sum = 0
         if self.head == None:
             print("No values")
@@ -36,11 +54,13 @@ class SLL:
             print(sum)
             return self
 
-x = SLL()
-x.head = Node(4)
+x = SLL() # declare singly linked list class
+x.head = Node(4) # declare head of Node class
 
-x.addBack(3).addBack(5)
+#examples
 
-x.displayValues()
+x.add_to_front(3).add_to_back(5)
 
-x.maxValue()
+x.display_values()
+
+x.max_value()
