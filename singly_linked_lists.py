@@ -16,7 +16,7 @@ class SLL:
         self.head = new_node # reassign new node as head
         return self
 
-    # add value to end of array
+    # add node to end of array
 
     def add_to_back(self, key):
         if self.head == None: # check if head is None
