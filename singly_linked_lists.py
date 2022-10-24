@@ -16,6 +16,13 @@ class SLL:
         self.head = new_node # reassign new node as head
         return self
 
+    # remove node from front of array
+
+    def remove_from_front(self):
+        runner = self.head # create new variable to store current head (temp)
+        self.head = runner.next # re-assign head.next as the new head
+        return self
+
     # add node to end of array
 
     def add_to_back(self, key):
@@ -57,8 +64,15 @@ class SLL:
 x = SLL()
 x.head = Node(4)
 
-x.add_to_front(3).add_to_back(5)
+x.add_to_front(3).add_to_front(2).add_to_back(5)
 
+print("Full array...")
 x.display_values()
 
+x.remove_from_front()
+
+print("Remove front node...")
+x.display_values()
+
+print("Sum of array...")
 x.max_value()
