@@ -26,20 +26,33 @@ class SLL:
     # add node to end of array
 
     def add_to_back(self, key):
-        if self.head == None: # check if head is None
-            self.head = Node(key)
-        else:
-            runner = self.head
-            while runner.next != None:
-                runner = runner.next
-            runner.next = Node(key)
+        if self.head == None: # check if head is empty
+            self.head = Node(key) # make head the new node
+            return self
+        runner = self.head
+        while runner.next != None:
+            runner = runner.next
+        runner.next = Node(key)
+        return self
+
+    # remove node from end of array
+
+    def remove_from_back(self):
+        if self.head == None: # check if head is empty
+            print("This list is empty")
+            return self
+        runner = self.head
+        while runner.next != None:
+            prev = runner
+            runner = runner.next
+        prev.next = None
         return self
 
     # traverse through array
 
     def display_values(self):
-        if self.head == None:
-            print("No values")
+        if self.head == None: # check if head is empty
+            print("This list is empty")
         else:
             runner = self.head
             while runner != None:
@@ -64,7 +77,7 @@ class SLL:
 x = SLL()
 x.head = Node(4)
 
-x.add_to_front(3).add_to_front(2).add_to_back(5)
+x.add_to_front(3).add_to_front(2).add_to_back(5).add_to_back(6)
 
 print("Full array...")
 x.display_values()
@@ -74,5 +87,10 @@ x.remove_from_front()
 print("Remove front node...")
 x.display_values()
 
-print("Sum of array...")
+x.remove_from_back()
+
+print("Remove last node...")
+x.display_values()
+
+print("Sum of remaining array...")
 x.max_value()
