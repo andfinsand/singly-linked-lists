@@ -21,6 +21,7 @@ class SLL:
     def remove_from_front(self):
         runner = self.head # create new variable to store current head (temp)
         self.head = runner.next # re-assign head.next as the new head
+        runner = None # delete temp
         return self
 
     # add node to end of array
